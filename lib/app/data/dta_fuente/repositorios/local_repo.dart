@@ -10,7 +10,7 @@ class LocalRepo implements LocalRepoInterface {
   }
 
   @override
-  Future<bool> guardarEstarLogueado() async {
+  Future<void> guardarEstarLogueado() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setBool(LocalStorage.ES_LOGUEADO, true);
   }

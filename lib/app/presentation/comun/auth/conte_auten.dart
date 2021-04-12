@@ -1,6 +1,5 @@
 import 'package:cherche_transport_u/app/presentation/comun/auth/auth_main_content.dart';
 import 'package:cherche_transport_u/app/presentation/comun/auth/styles.dart';
-import 'package:cherche_transport_u/external/responsive/services/process_device_type.dart';
 import 'package:flutter/material.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';

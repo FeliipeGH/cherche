@@ -1,7 +1,7 @@
 abstract class LocalRepoInterface {
   Future<bool> estaLogueado();
 
-  Future<bool> guardarEstarLogueado();
+  Future<void> guardarEstarLogueado();
 
   Future<void> removerEstarLogueado();
 }

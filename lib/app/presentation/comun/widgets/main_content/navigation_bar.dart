@@ -1,5 +1,8 @@
+import 'package:cherche_transport_u/app/presentation/modulos/home/pagina_home.dart';
+import 'package:cherche_transport_u/app/presentation/modulos/paradas/pagina_paradas.dart';
+import 'package:cherche_transport_u/app/presentation/modulos/recordatorios/pagina_recordatorios.dart';
+import 'package:cherche_transport_u/app/presentation/modulos/viajes/pagina_viajes.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -26,50 +29,55 @@ class CustomBottomNavigationBar extends StatelessWidget {
           onTap: (index) {
             switch (index) {
               case 0:
-              // todo check route
-              /*if (currentIndex != index) {
+                if (currentIndex != index) {
                   Navigator.of(context).pushReplacement(PageRouteBuilder(
                     pageBuilder: (context, _, __) {
-                      return HomePage();
+                      return PaginaHome();
                     },
                   ));
-                }*/
+                }
                 break;
               case 1:
-              // todo check route
-              /*if (currentIndex != index) {
+                if (currentIndex != index) {
                   Navigator.of(context).pushReplacement(PageRouteBuilder(
                     pageBuilder: (context, _, __) {
-                      return HealthPage();
+                      return StopsPage();
                     },
                   ));
-                }*/
+                }
                 break;
               case 2:
-              // todo check route
-              /*if (currentIndex != index) {
+                if (currentIndex != index) {
                   Navigator.of(context).pushReplacement(PageRouteBuilder(
                     pageBuilder: (context, _, __) {
-                      return ProfilePage();
+                      return TravelsPage();
                     },
                   ));
-                }*/
+                }
+                break;
+              case 3:
+                if (currentIndex != index) {
+                  Navigator.of(context).pushReplacement(PageRouteBuilder(
+                    pageBuilder: (context, _, __) {
+                      return RemindersPage();
+                    },
+                  ));
+                }
                 break;
             }
           },
           //type: BottomNavigationBarType.fixed, -> to have more than 3 options
+          type: BottomNavigationBarType.fixed,
           elevation: 5,
           currentIndex: currentIndex,
           items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Inicio"),
             BottomNavigationBarItem(
-                icon: Icon(FontAwesomeIcons.book), label: "Inicio"),
-            /*BottomNavigationBarItem(
-                icon: Icon(FontAwesomeIcons.running),
-                label: AppLocalizations.of(context).exercise),*/
+                icon: Icon(Icons.directions_bus), label: "Paradas"),
             BottomNavigationBarItem(
-                icon: Icon(FontAwesomeIcons.heartbeat), label: "otro"),
+                icon: Icon(Icons.airport_shuttle_outlined), label: "Viajes"),
             BottomNavigationBarItem(
-                icon: Icon(FontAwesomeIcons.userAlt), label: "otro2")
+                icon: Icon(Icons.bookmarks_rounded), label: "Recordatorios")
           ],
         ),
       ),

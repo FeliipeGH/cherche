@@ -1,9 +1,11 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:cherche_transport_u/app/presentation/comun/widgets/main_content/dialogs/main_app/main_app_dialog.dart';
 import 'package:cherche_transport_u/app/presentation/comun/widgets/main_content/float_button.dart';
 import 'package:cherche_transport_u/app/presentation/comun/widgets/main_content/navigation_bar.dart';
 import 'package:cherche_transport_u/app/presentation/comun/widgets/main_content/styles/content_page_styles.dart';
 import 'package:cherche_transport_u/app/presentation/tema/typography.dart';
 import 'package:cherche_transport_u/external/responsive/services/process_device_type.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -49,7 +51,7 @@ class ContentPage extends StatelessWidget {
                             Navigator.of(context).pop();
                           },
                         )
-                      : Image.asset("assets/imgs/main/logo_app.png"),
+                      : Image.asset("assets/logo.png"),
                 ),
               ),
               actions: isDetails
@@ -57,18 +59,51 @@ class ContentPage extends StatelessWidget {
                       FadeInUp(
                         child: Container(
                           margin: EdgeInsets.all(4),
-                          child: Image.asset("assets/imgs/main/logo_app.png"),
+                          child: Image.asset("assets/logo.png"),
                         ),
                       ),
                     ]
-                  : null,
+                  : [
+                      FadeInUp(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          child: InkWell(
+                            customBorder: CircleBorder(),
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) => MainAppDialog(),
+                              );
+                            },
+                            child: Ink(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              child: Container(
+                                child: CircleAvatar(
+                                  radius: 22,
+                                  backgroundColor: Colors.transparent,
+                                  child: InkWell(
+                                    child: Icon(
+                                      Icons.person,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
               elevation: 2,
               title: FadeInUp(
                 child: Text(
-                  "FatLessOut",
+                  "ChercheTransport",
                   style: MainTypography.tittleApp.copyWith(
-                    fontSize: getTitleAppFontSize(context),
-                  ),
+                      fontSize: getTitleAppFontSize(context),
+                      color: Colors.black),
                 ),
               ),
             )

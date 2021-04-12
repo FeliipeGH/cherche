@@ -17,8 +17,8 @@ double getAlertDialogMarginX(BuildContext context) {
       context: context,
       small: 12,
       normal: 16,
-      large: 20,
-      extraLarge: 22,
+      large: 18,
+      extraLarge: 20,
     ),
     tablet: 0,
   );
