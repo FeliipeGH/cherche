@@ -17,6 +17,7 @@ class MaterialInput extends StatefulWidget {
   final TextStyle textStyle;
   final String Function(String value) validation;
   final bool isPassword;
+  final bool enable;
 
   MaterialInput({
     Key key,
@@ -33,6 +34,7 @@ class MaterialInput extends StatefulWidget {
     this.psVisible = false,
     this.textStyle,
     this.isPassword = false,
+    this.enable = true,
   }) : super(key: key);
 
   @override
@@ -66,15 +68,16 @@ class _MaterialInputState extends State<MaterialInput> {
   @override
   Widget build(BuildContext context) {
     final MaterialInputProvider materialInputProvider =
-        Provider.of<MaterialInputProvider>(context);
+    Provider.of<MaterialInputProvider>(context);
     return Container(
       child: TextFormField(
+        enabled:widget.enable,
         focusNode: _focusNode,
         initialValue: widget.dataString,
         keyboardType: widget.textInputType,
         obscureText: widget.isPassword ? !showPass : false,
         style:
-            widget.textStyle.copyWith(fontSize: getInputTextFontSize(context)),
+        widget.textStyle.copyWith(fontSize: getInputTextFontSize(context)),
         validator: (String value) {
           if (hasChange || materialInputProvider.makeValidation) {
             _makeValidation(value);
@@ -84,7 +87,9 @@ class _MaterialInputState extends State<MaterialInput> {
           }
         },
         decoration: InputDecoration(
-          fillColor: Theme.of(context).dividerColor,
+          fillColor: Theme
+              .of(context)
+              .dividerColor,
           hintText: widget.hintText,
           contentPadding: EdgeInsets.all(8),
           filled: true,
@@ -94,67 +99,82 @@ class _MaterialInputState extends State<MaterialInput> {
               fontSize: getInputTextFontSize(context)
           ),
           helperStyle: TextStyle(
-            fontSize: getErrorTextFontSize(context)
+              fontSize: getErrorTextFontSize(context)
           ),
           errorStyle: TextStyle(
-            color:
-                errorText == null ? Theme.of(context).accentColor : Colors.red,
-            fontSize: getErrorTextFontSize(context)
+              color:
+              errorText == null ? Theme
+                  .of(context)
+                  .accentColor : Colors.red,
+              fontSize: getErrorTextFontSize(context)
           ),
           enabledBorder: UnderlineInputBorder(
             borderSide:
-                BorderSide(color: errorText == null ? Colors.grey[700] : Colors.red),
+            BorderSide(
+                color: errorText == null ? Colors.grey[700] : Colors.red),
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
                 color: errorText == null
-                    ? Theme.of(context).primaryColor
+                    ? Theme
+                    .of(context)
+                    .primaryColor
                     : Colors.red),
           ),
           border: UnderlineInputBorder(
             borderSide: BorderSide(
                 color: errorText == null
-                    ? Theme.of(context).primaryColor
+                    ? Theme
+                    .of(context)
+                    .primaryColor
                     : Colors.red),
           ),
           errorBorder: UnderlineInputBorder(
             borderSide: BorderSide(
                 color: errorText == null
-                    ? Theme.of(context).primaryColor
+                    ? Theme
+                    .of(context)
+                    .primaryColor
                     : Colors.red),
           ),
           focusedErrorBorder: UnderlineInputBorder(
             borderSide: BorderSide(
                 color: errorText == null
-                    ? Theme.of(context).primaryColor
+                    ? Theme
+                    .of(context)
+                    .primaryColor
                     : Colors.red),
           ),
           prefixIcon: Icon(
             widget.icon,
             color: errorText == null
                 ? isFocus
-                    ? Theme.of(context).accentColor
-                    : Colors.grey[700]
+                ? Theme
+                .of(context)
+                .accentColor
+                : Colors.grey[700]
                 : Colors.red,
             size: getMaterialInputIconSize(context),
           ),
           suffixIcon: widget.isPassword
               ? IconButton(
-                  icon: Icon(
-                    showPass ? Icons.visibility : Icons.visibility_off,
-                    color: errorText == null
-                        ? isFocus
-                            ? Theme.of(context).accentColor
-                            : Colors.grey[700]
-                        : Colors.red,
-                    size: getMaterialInputIconSize(context),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      showPass = !showPass;
-                    });
-                  },
-                )
+            icon: Icon(
+              showPass ? Icons.visibility : Icons.visibility_off,
+              color: errorText == null
+                  ? isFocus
+                  ? Theme
+                  .of(context)
+                  .accentColor
+                  : Colors.grey[700]
+                  : Colors.red,
+              size: getMaterialInputIconSize(context),
+            ),
+            onPressed: () {
+              setState(() {
+                showPass = !showPass;
+              });
+            },
+          )
               : widget.suffixIcon,
           errorText: errorText,
         ),
