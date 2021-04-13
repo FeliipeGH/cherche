@@ -46,6 +46,9 @@ class TravelsPage extends StatelessWidget {
                 hintText: 'Selecciona colectivo',
                 labelText: 'Selecciona colectivo',
                 iconData: Icons.directions_bus,
+                onChange: (String value){
+
+                },
               ),
             ),
             Container(
@@ -56,6 +59,9 @@ class TravelsPage extends StatelessWidget {
                 hintText: 'Tipo de recorrido',
                 labelText: 'Tipo de recorrido',
                 iconData: Icons.map_sharp,
+                onChange: (String value){
+
+                },
               ),
             ),
             Container(
@@ -66,6 +72,9 @@ class TravelsPage extends StatelessWidget {
                 hintText: 'Fecha de servicio',
                 labelText: 'Fecha de servicio',
                 iconData: Icons.calendar_today,
+                onChange: (String value){
+
+                },
               ),
             ),
             Container(
