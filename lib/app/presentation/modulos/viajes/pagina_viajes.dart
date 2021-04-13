@@ -1,4 +1,4 @@
-import 'package:cherche_transport_u/app/domain/modelos/BusTravel.dart';
+import 'package:cherche_transport_u/app/domain/modelos/bus_travel.dart';
 import 'package:cherche_transport_u/app/presentation/comun/widgets/card_decorations/card_decoration.dart';
 import 'package:cherche_transport_u/app/presentation/comun/widgets/main_content/content_page.dart';
 import 'package:cherche_transport_u/app/presentation/estilos_general/buttons_styles.dart';

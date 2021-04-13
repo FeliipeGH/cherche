@@ -14,6 +14,7 @@ class SelectorTextDialog extends StatefulWidget {
   final String hintText;
   final String labelText;
   final String helperText;
+  final Function(String value) onChange;
 
   const SelectorTextDialog(
       {Key key,
@@ -21,7 +22,8 @@ class SelectorTextDialog extends StatefulWidget {
       this.iconData,
       this.hintText,
       this.labelText,
-      this.helperText})
+      this.helperText,
+      this.onChange})
       : super(key: key);
 
   @override
@@ -32,6 +34,7 @@ class _SelectorTextDialogState extends State<SelectorTextDialog> {
   String dataString = "";
 
   void setDataString(String value) {
+    widget.onChange(value);
     setState(() {
       dataString = value;
     });
