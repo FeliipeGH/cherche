@@ -11,24 +11,22 @@ import 'package:cherche_transport_u/app/domain/servicios/local_servicio_interfac
 import 'package:cherche_transport_u/app/presentation/modulos/home/pagina_home.dart';
 import 'package:cherche_transport_u/app/presentation/tema/theme.dart';
 import 'package:cherche_transport_u/external/inputs/material_input_provider.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 const serverIp = "http://192.168.0.4/server";
 
-/*void main() {
+void main() {
   runApp(Principal());
-}*/
+}
 
-void main() => runApp(
+/*void main() => runApp(
       DevicePreview(
         enabled: !kReleaseMode,
         builder: (context) => Principal(), // Wrap your app
       ),
-    );
+    );*/
 
 class Principal extends StatelessWidget {
   @override
@@ -63,10 +61,8 @@ class Principal extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           // require by device preview
-          locale: DevicePreview.locale(context),
           // Add the locale here
           // require by device preview
-          builder: DevicePreview.appBuilder,
           // Add the builder here
           title: 'Cherche Transport',
           //home: PaginaBienvenida.init(context),
